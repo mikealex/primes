@@ -66,13 +66,15 @@ def fast_primes():
 
 
 if __name__ == "__main__":
-    # pylint: disable=unnecessary-lambda
     print(
-        "Fastest execution of slow_primes was ",
-        timeit.timeit(lambda: slow_primes(), setup="pass", number=NUM_ITERATIONS),
+        "timeit slow_primes: ",
+        timeit.timeit(
+            "slow_primes()", setup="pass", number=NUM_ITERATIONS, globals=globals()
+        ),
     )
     print(
-        "Fastest execution of fast_primes was ",
-        timeit.timeit(lambda: fast_primes(), setup="pass", number=NUM_ITERATIONS),
+        "timeit fast_primes: ",
+        timeit.timeit(
+            "fast_primes()", setup="pass", number=NUM_ITERATIONS, globals=globals()
+        ),
     )
-    # pylint: enable=unnecessary-lambda
