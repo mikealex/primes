@@ -19,7 +19,7 @@ def slow_primes_generator() -> int:
     yield 1
     yield 2
     for maybe_prime in range(3, MAX_PRIME):
-        for divisor in range(2, maybe_prime >> 1):
+        for divisor in range(2, (maybe_prime >> 1) + 1):
             if (maybe_prime % divisor) == 0:
                 break
         else:
